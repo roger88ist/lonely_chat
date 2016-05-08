@@ -17,12 +17,12 @@ $(document).ready(function(){
     
 	$("#new-message-button").on("click", send);
 
-	// $("textarea").keypress(function (e) {
-	// 	if (e.which == 13) {
-	// 		send;
-	// 		return false;
-	// 	}
-	// });
+	$("#new-message-body").keypress(function (e) {
+		if (e.which == 13) {
+			send();
+			return false;
+		}
+	});
 
 	// $("#conversation a").on("click", function(){
  //    	console.log("X was clicked");
