@@ -33,12 +33,17 @@ $(document).ready(function(){
 		}
 	});
 
-	$.ajax({
-		type: 'GET',
-		url: 'http://api.icndb.com/jokes/random/',
-		success: function(data){
-			console.log(data.value['joke']);
-		}
+	$('#lonely').on("click", function() {
+		$.ajax({
+			type: 'GET',
+			url: 'http://api.icndb.com/jokes/random/',
+			success: function(data){
+				var joke = data.value['joke'];
+				console.log(joke);
+				$(".chat").append('<ol id="conversation">' + '<li class="message">' + '<a class="delete" href="#">Delete</a>' + '<h3 class="author">' + 'Chuck Norris' + '</h3>' + '<p class="message-body">' + joke + '</p>' + '<span class="timestamp">' + timefy() + '</span>' + '</li>' + '</ol>');
+			}
+		});
+
 	});
 
 });
