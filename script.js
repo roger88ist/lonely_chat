@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-	var array = ["I", "Myself", "Me"];
+	var array = ["Me", "Myself", "I"];
 
 	function identify() {
 		var n = ($('ol').length) % 3;
@@ -33,8 +33,12 @@ $(document).ready(function(){
 		}
 	});
 
-	// $("#conversation a").on("click", function(){
- //    	console.log("X was clicked");
- //    });
+	$.ajax({
+		type: 'GET',
+		url: 'http://api.icndb.com/jokes/random/',
+		success: function(data){
+			console.log(data.value['joke']);
+		}
+	});
 
 });
